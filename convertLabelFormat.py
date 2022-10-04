@@ -24,7 +24,7 @@ def run_convert():
         size=[float(h),float(w)]
         
         w = open(save_path+'/'+name+'.txt', 'w')
-        with open(os.path.join(os.getcwd(), filename), 'r') as f: # open in readonly mode
+        with open(os.path.join(os.getcwd(), filename), 'r') as f: 
             lines = f.readlines()
             for line in lines:
                 s=(line.strip('\n')).split(',')
