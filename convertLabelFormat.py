@@ -21,7 +21,7 @@ def run_convert():
         name=filename.strip('.txt').strip('datasets/labels/train').strip('\\')
         img = cv2.imread(image_path+'/'+name+'.png')
         h,w,c=img.shape
-        size=[float(h),float(w)]
+        size=[float(w),float(h)]
         
         w = open(save_path+'/'+name+'.txt', 'w')
         with open(os.path.join(os.getcwd(), filename), 'r') as f: 
@@ -36,8 +36,8 @@ def run_convert():
                 
                 box=[xMin,xMax,yMin,yMax]
                 
-                yoloW,yoloY,yoloW,yoloH=convertBBox(size,box)
-                #print("%d %f %f %f %f" %(label_c,yoloW,yoloY,yoloW,yoloH))
-                w.write("%d %f %f %f %f\n" %(label_c,yoloW,yoloY,yoloW,yoloH))
+                yoloX,yoloY,yoloW,yoloH=convertBBox(size,box)
+                #print("%d %f %f %f %f" %(label_c,yoloX,yoloY,yoloW,yoloH))
+                w.write("%d %f %f %f %f\n" %(label_c,yoloX,yoloY,yoloW,yoloH))
             f.close()
         w.close()
